@@ -1,50 +1,37 @@
-# Example: Tetris
+# Tetris
 
-A Universal Windows Platform (UWP) Tetris game for Xbox One, built with C# and XAML.
+Tetris mit UWP und Gamepad-Steuerung. Das Projekt ist als überschaubares Lernbeispiel für C#, UWP und die Bereitstellung auf einer Xbox One gedacht.
 
-## Technologies
+## Tutorial
 
-- **Platform:** Universal Windows Platform (UWP)
-- **Target:** Xbox One
-- **Language:** C# / XAML
-- **IDE:** Visual Studio 2017
-- **Framework:** Microsoft.NETCore.UniversalWindowsPlatform 6.2.14
+Die vollständige Schrittfolge mit Hinweisen zu Visual Studio, Developer Mode und Gamepad-Eingabe steht im [XboxDev-Tutorial](https://xboxdev.com/tutorials/xbox-uwp-example-tetris/).
 
-## Getting Started
+## Voraussetzungen
 
-1. Open `Tetris.sln` in Visual Studio 2017.
-2. Select the **x64** configuration.
-3. Deploy to your Xbox One (Developer Mode) or the Xbox One simulator.
-4. Press **Start** to begin playing.
+- Windows mit Visual Studio und installierter **Universal Windows Platform development**-Workload
+- Eine Xbox One im Developer Mode oder der UWP-Simulator
+- Visual Studio-Konfiguration **Debug**, Plattform **x64**
 
-## Controls
+## Projekt öffnen und starten
 
-| Input | Action |
-|-------|--------|
-| D-Pad Left / Left Stick Left | Move piece left |
-| D-Pad Right / Left Stick Right | Move piece right |
-| D-Pad Down / Left Stick Down | Soft drop |
-| D-Pad Up / Left Stick Up | Hard drop |
-| A Button / Space | Rotate piece |
+1. Repository klonen oder als ZIP laden: [example-tetris](https://github.com/XboxDevCom/example-tetris).
+2. **Tetris.sln** in Visual Studio öffnen.
+3. **x64** als Plattform auswählen. Für lokale Tests genügt der Simulator; für die Konsole **Remote Machine** wählen, die Xbox-IP eintragen und den Pairing-PIN aus dem Developer Portal bestätigen.
+4. Mit **Erstellen** kompilieren und mit **Bereitstellen** auf Simulator oder Konsole starten.
+5. Änderungen zunächst an einer kleinen Oberfläche oder einer einzelnen Spielregel testen. Das erleichtert die Fehlersuche auf dem TV-Layout.
 
-## Project Structure
+## Projektaufbau
 
-```
-Tetris/
-├── App.xaml              # Application definition
-├── App.xaml.cs           # Application code-behind
-├── MainPage.xaml         # Game UI
-├── MainPage.xaml.cs      # Game controller and rendering
-├── Package.appxmanifest  # Package manifest
-├── Models/
-│   ├── Tetromino.cs      # Tetromino piece model with rotation
-│   └── GameBoard.cs      # Game board logic
-├── Properties/
-│   ├── AssemblyInfo.cs   # Assembly metadata
-│   └── Default.rd.xml    # .NET Native runtime directives
-└── Assets/               # App icons and splash screen
-```
+Der zentrale Quellcode liegt im Ordner **Tetris/**. Die Solution bündelt das UWP-Projekt und die benötigten Assets. Öffne zuerst `MainPage.xaml` beziehungsweise die dort verwendete Startseite und verfolge anschließend die zugehörige C#-Code-behind-Datei. So lässt sich nachvollziehen, wie Oberfläche, Eingabe und Zustand zusammenspielen.
 
-## License
+### Gute erste Änderungen
 
-MIT License — see [LICENSE](LICENSE).
+Enthält Spielfeld, Tetrominos, Kollisionen und eine einfache Spielschleife. Ändere danach Farben, Texte oder ein Asset und prüfe die Bereitstellung erneut. Bei Spielen sind zusätzlich Fokusführung, Controller-Eingaben und ein lesbares Layout aus größerer Entfernung wichtig.
+
+## Hinweise
+
+Die Beispiele stammen aus der UWP- und Xbox-One-Entwicklungsphase. Für neue Projekte sollte geprüft werden, ob Windows App SDK oder Xbox GDK besser passt. Das Repository zeigt bewusst einen kleinen, nachvollziehbaren Einstieg und ist kein fertiges Produkt.
+
+## Lizenz
+
+Die Lizenzbedingungen stehen in der Datei [LICENSE](LICENSE).
